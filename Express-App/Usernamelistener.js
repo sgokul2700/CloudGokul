@@ -16,12 +16,12 @@ app.use(busboy());
 
 const validnumber = RegExp((/^[0-9]+$/));
 const validletter = RegExp((/^[A-Za-z]+$/));
-const publicKey = 'ASIAZLO737EVW2TSPQYT'; // Update the keys
-const secretKey = 'f/+FWmPrmEhc7iQC4HDM8GLtkNzfu9MiCmOelcf+';
-const sessionToken = 'FQoGZXIvYXdzEPH//////////wEaDGRrDnvzHV/WKBEoXyL8BK4Y3Shgj4V65n9aJAglWW9OlbPNEMbZfKGchT55aToVCta3eFCKVmivM7iqcYc2R28+NlgnHFebeo7Lgt22f2uwbGG0Ah08iwGtXjPNCxOjfSq4QWJzQAaEe9Uxv8iwgl1aUEmtpl9yM8k16KY8qDFUQvvb1cuBf7pBb4+7IOhBfA0SichTcHZu5wuRExz113AO6qZKCBQnRqxS+bUQjs10IRp2Q/a/qQrti8ZVvVb7ryToTxpueRJm0NULotiR8Cw4FlHi1Uq6aazDY765wEL8JDGuys0XWItsDqjI82/o6q3/ZIJA8Vqn8LdMALiv2Hnyy8HIjr2qzVuV7oB2gKSC8eP/4Er6u2LOEWdvB9uSLlZ7Oh1dJyh48qGPMWww2X+ux2qmelw9f1rOMt1czqN/2vWFGbN7cmVvLCgamhHrRoUrzx1qVozK7/KAabEzlbIQDvkhZKYIDByd6XMFuz4VGaUa43pGfBgYYyZ6Rm0M6oHT8oA0SwGQuZ+N1Ti7T0j3Gk2TcSvqVPbfK7bod79PfAhXHscf1zAGaG012JLUSzht/sNXDOCohTM+SRuaTXvQEFzzd0KNhR9tKJ9nle9y5JJxO0Yly0fYL38uq8nH5qlJzwplayvh/OuzrQdcLfJh9aA6RNEQbm1702nwlUza99U3bV2hOLnxSbQG69BRx9A6YOA2Dse7IQZS4xm1aPfsT4B0DF6Ykndwygsh5EdG6AqkXxBEtIOuqoLbyNzd1T9cW0EzGxpRgxMRdd1GQS8J97Neg48TG2D61yZaRvNQEi6H18/FYdWfd/YsWD+SK60waDdYLqAcIxAYRckGkGQBRtsrrmaK4rybXCjR4eXqBQ==';
+const publicKey = 'ASIAZLO737EV3TVLHEXB'; // Update the keys
+const secretKey = 'TeL41BsvyJDy6Zg5ZXRBqNLi2WT1Ieu6JEnhxDMr';
+const sessionToken = 'FQoGZXIvYXdzEAMaDPMgdk7851i/42GsJiL8BBPje3Z7n0dGeVKBIBMMyWnJXrVOByuy/kh3P1piQyXov8WND4LSpQbMZYmyKt07CwN0Q7Qyi+4BA0w7d8xDZady6L0v8RqmdlaFPfTofKbwLWG34bCVF6rHR7ZDLHyle8WQzynVTIwEXgMULXe4kuD8X6tnprP8D4XVLuAC1fO7NrD5qOrfoBetc6Yfg4yQT8NI6c1HC49SmXHWaaSy9YCmMwcgyIbzLRg+IOZicNXTF7IonQzFzR78o9bZKzcO8ADlAxzEXUOv9YHr1g7G8AMaNpLsNqJHWW48s7r9IHg7CizD7kIe1EsCA/lSxlIC6mUSwst64pVzvcR6tDAOYjoZaAeNOKzgvOiv4gyDGk4iaV0yhLR8jeVOENN/r5nbw7sx/lPdVXr/hmP2tiQD0zZj6QZqmOKrsx4feloOq7RggUqNFNxcsIu48hZTCdGGsj3AG49WfrC32Xq3vDqFvlhS9iw5tC2BC4wUFkGjoFSCgrCmPZVT6UvSgscziTNJccvrdVdd6bYYSv/d2Pg51SZ5j+uOYd1joZaiGX+PiDL3rVBfJnDSHmDkZKuCvc7Uqvu6a00dUADlMigQAd+AmUGY56Lwtqej+Za5L/XetghduKO8C+iEv4A/K1Ifik2pakODP7QJc1nbvo5CM8BsQpGuBCkZCbp8J26iG7sjJAnuoVW+vSVT0UJXllRPl82gaKyXc6He2O0JXf+ajuu4xxAOH257SCg1IC99Pf34iUaE62T7vOf6vfwSws7TiuY7XMjH+YAgVS7rfos/XhEpm6pLOMo+2H7KJVXnFSYE3vwRHcAIn+X2FuvofROne4aTKa4j8h7CU6ybelVcOSim3+nqBQ==';
 
 const GOOGLE_CLOUD_PROJECT_ID = 'hale-mantra-246416'; // Replace with your project ID
-const GOOGLE_CLOUD_KEYFILE = 'E:\\cloud\\hale-mantra-246416-607d472556bd.json'; // Replace with the path to the downloaded private key
+const GOOGLE_CLOUD_KEYFILE = 'hale-mantra-246416-607d472556bd.json'; // Replace with the path to the downloaded private key
 
 const s3 = new AWS.S3(
  {accessKeyId: publicKey, secretAccessKey: secretKey, sessionToken: sessionToken}

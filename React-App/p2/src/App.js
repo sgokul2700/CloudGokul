@@ -71,7 +71,7 @@ class App extends React.Component{
             errors.zip = '';
           }
           else{
-            errors.zip = 'Zipcode should only be in numbers and 5 digits';
+            errors.zip = 'Zipcode is mandatory and should only be in numbers and 5 digits';
           }
         })
         break;
@@ -83,7 +83,7 @@ class App extends React.Component{
             errors.phone = '';
           }
           else{
-            errors.phone = 'Phone number should only be in numbers and 10 digits';
+            errors.phone = 'Phone number is mandatory and should only be in numbers and 10 digits';
           }
         })
         break;
@@ -98,7 +98,7 @@ class App extends React.Component{
           }
           else{
             console.log("false");
-            errors.fileupload = 'upload file';
+            errors.fileupload = 'Product Image is Mandatory';
           }
         })
       break;
