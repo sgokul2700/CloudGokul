@@ -5,6 +5,7 @@ var fs = require('fs');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var busboy = require('connect-busboy');
+var zipcodes = require('zipcodes');
 const AWS = require('aws-sdk');
 const {Storage} = require('@google-cloud/storage');
 
@@ -39,7 +40,8 @@ var con = mysql.createConnection({
 var todaysDate = new Date();
 
 app.post('/', function(req , res){
-  if((req.body.date==="")||(req.body.days==="")||(req.body.country==="Select a Country")||(req.body.state==="Select a State")){
+  var hills = zipcodes.lookup(req.body.zip);
+  if((req.body.pname==="")||(req.body.zip==="")||(req.body.phone==="")){
     res.send("false");
   }
   else{
@@ -51,7 +53,7 @@ app.post('/', function(req , res){
       if (err) throw err;
       console.log("Connected!");
       try{
-        con.query("insert into info values(?,?,?,?)", [req.body.date,req.body.days,req.body.country,req.body.state],function (err, result) {
+        con.query("insert into shipping values(?,?,?,?)", [req.body.pname,req.body.zip,req.body.phone,hills.city],function (err, result) {
           console.log("Database created");
           console.log(result);
         });
@@ -67,7 +69,7 @@ app.post('/', function(req , res){
   }
 })
 
-app.post('/letters',function(req , res){
+app.post('/checkpname',function(req , res){
   res.send(validletter.test(req.body.val)?"true":"false")
 })
 
@@ -78,11 +80,11 @@ app.post('/numbers',function(req , res){
 app.post('/checkcountry',function(req , res){
   res.send(req.body.val=="Select a Country"?"false":"true")
 })
-app.post('/checkstate',function(req , res){
-  res.send(req.body.val=="Select a State"?"false":"true")
+app.post('/checkzip',function(req , res){
+  res.send(validnumber.test(req.body.val)&&(req.body.val.length==5)?"true":"false")
 })
-app.post('/checkdays',function(req , res){
-  res.send((req.body.val<30)&&(req.body.val>=0)&&(validnumber.test(req.body.val))?"true":"false")
+app.post('/checkphone',function(req , res){
+  res.send((validnumber.test(req.body.val))&&(req.body.val.length==10)?"true":"false")
 })
 app.post('/checkdate',function(req , res){
 
@@ -98,7 +100,7 @@ app.post('/fileupload', function(req, res) {
           Key: (filename),
           Body: file
         };
-         fstream = fs.createWriteStream("C:\\yogesh cloud\\CloudCourse\\Express-Applications\\"+filename);
+         fstream = fs.createWriteStream(filename);
          file.pipe(fstream);
         s3.upload(params, function(s3Err, data) {
           if (s3Err) {
@@ -107,7 +109,7 @@ app.post('/fileupload', function(req, res) {
               console.log("Successfully uploaded data");
             }
         });
-        storage.bucket('sgokul2700').upload("C:\\yogesh cloud\\CloudCourse\\Express-Applications\\"+filename,function(s3Err, data) {
+        storage.bucket('sgokul2700').upload(filename,function(s3Err, data) {
           if (s3Err) {
               console.log("Error uploading data: ", s3Err);
             } else {
