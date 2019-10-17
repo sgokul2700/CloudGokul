@@ -1,0 +1,22 @@
+{
+  "name": "express-applications",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "@google-cloud/storage": "^3.5.0",
+    "aws-sdk": "^2.551.0",
+    "body-parser": "^1.19.0",
+    "busboy": "^0.3.1",
+    "connect-busboy": "^0.0.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon upload.js"
+  },
+  "author": "Yogesh",
+  "license": "ISC"
+}

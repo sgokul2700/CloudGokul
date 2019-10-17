@@ -1,0 +1,18 @@
+.App{
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 2px solid black;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+}
+
+Form{
+  margin-left: 10px;
+  margin-right: 10px;
+  width: auto;
+}
+.but{
+  margin-left: 30%;
+}
